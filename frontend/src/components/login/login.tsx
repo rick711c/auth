@@ -2,6 +2,7 @@ import { VisibilityOff, Visibility } from "@mui/icons-material";
 import {
   FormControl,
   InputLabel,
+  
   InputAdornment,
   IconButton,
   OutlinedInput,
@@ -10,7 +11,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { authRequested } from "../../redux/silces/auth.silce";
+import {authRequested } from "../../redux/silces/auth.silce";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -27,7 +28,7 @@ const Login = () => {
   const handleLogIn = (e: any) => {
     e.preventDefault();
     dispatch(authRequested({ userName: "sayan", passWord: "sayan" }));
-    navigate("/");
+    navigate("/dashboard");
   };
 
   return (
@@ -64,15 +65,11 @@ const Login = () => {
         />
       </FormControl>
 
-
-      {/* buttons */}
       <Stack spacing={2} direction="row">
         <Button variant="contained" onClick={handleLogIn}>
           Login
         </Button>
-        <Button variant="contained"  onClick={()=>{navigate("/register")}} >
-          Signup
-          </Button>
+        <Button variant="contained">Signup</Button>
       </Stack>
     </Stack>
   );

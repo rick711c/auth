@@ -1,27 +1,27 @@
 export interface IAuthState {
-  isLoading: boolean;
-  isAuthenticated: boolean;
-  userDetails: IUserDetails | null;
-  errormessege: string | null;
+isLoading:boolean;
+isAuthenticated:boolean;
+userDetails: IUserDetails | null;
+
 }
 
 export interface IUserDetails {
-  userName: string;
-  fullname: string;
-  email?: string;
-  phoneNumber?: string;
+    userName:string;
+    fullname:string;
+    email?:string;
+    phoneNumber?:string
 }
 
-export const IUserDetailsInitialState: IUserDetails = {
-  userName: "",
-  fullname: "",
-  email: "",
-  phoneNumber: "",
-};
+export const IUserDetailsInitialState:IUserDetails={
+userName:"",
+fullname:"",
+email:"",
+phoneNumber:""
+}
 
-export const IAuthStateInitialState: IAuthState = {
-  isLoading: false,
-  isAuthenticated: false,
-  userDetails: IUserDetailsInitialState,
-  errormessege: null
-};
+export const IAuthStateInitialState:IAuthState={
+    isLoading:false,
+    isAuthenticated:false,
+    userDetails:IUserDetailsInitialState,
+   
+}

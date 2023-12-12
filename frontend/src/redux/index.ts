@@ -5,18 +5,19 @@ import { rootReducer } from './silces';
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import rootSaga from './saga/rootsaga';
+import logger from "redux-logger";
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
-}
- 
-const persistedReducer = persistReducer(persistConfig, rootReducer )
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 const sagaMiddleware = createSagaMiddleware();
 export const store = configureStore({
-  reducer:persistedReducer,
-  middleware:[sagaMiddleware]
+  reducer: persistedReducer,
+  middleware: [sagaMiddleware, logger],
   // other options e.g middleware, go here
-})
+});
 
  sagaMiddleware.run(rootSaga);
 
