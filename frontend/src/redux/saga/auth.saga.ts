@@ -13,7 +13,22 @@ function* handleAuthRequest(action: any) {
   }
 }
 
+function* handleRegistrationRequest(action:any){
+  try{
+    const response = apiServices.registrationCall(action.payload);
+
+    yield put(authSlice.actions.registrationSuccess(response));
+  }catch (error) {
+    yield put(authSlice.actions.registrationFailed(error))
+  }
+}
+
 export function* watchAuthRequest() {
   
   yield takeLatest(authSlice.actions.authRequested.type, handleAuthRequest);
+}
+
+export function* watchRegistrationRequest(){
+
+  yield takeLatest(authSlice.actions.authRequested.type,handleRegistrationRequest)
 }
