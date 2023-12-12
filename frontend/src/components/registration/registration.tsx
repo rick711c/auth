@@ -16,18 +16,17 @@ import { IRegistration } from "../../model";
 
 const Registration = () => {
   const [showPassword, setshowPassword] = useState(false);
-  const [registrationDetails, setregistrationDetails] = useState<IRegistration>(
-    {
-      firstname: "",
-      lastname: "",
-      password: "",
-      email: "",
-      confirmPassword: "",
-    }
-  );
+  const [registrationDetails, setregistrationDetails] = useState<any>({
+    firstname: "",
+    lastname: "",
+    password: "",
+    email: "",
+    confirmPassword: "",
+  });
 
   const handleinput = (event: any) => {
     const { name, value } = event.target;
+
     setregistrationDetails({ ...registrationDetails, [name]: value });
   };
   const handleClickShowPassword = () => {
@@ -46,7 +45,7 @@ const Registration = () => {
         address: "123 Main Street",
       })
     );
-    navigate("/");
+    // navigate("/");
   };
 
   return (

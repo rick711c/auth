@@ -69,7 +69,14 @@ const Login = () => {
         <Button variant="contained" onClick={handleLogIn}>
           Login
         </Button>
-        <Button variant="contained">Signup</Button>
+        <Button
+          variant="contained"
+          onClick={() => {
+            navigate("/registration");
+          }}
+        >
+          Signup
+        </Button>
       </Stack>
     </Stack>
   );
