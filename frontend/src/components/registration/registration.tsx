@@ -27,9 +27,8 @@ const Registration = () => {
   );
 
   const handleinput = (event: any) => {
-    const {name,value}= event.target,
-    setregistrationDetails({[name]:value})
-
+    const { name, value } = event.target;
+    setregistrationDetails({ ...registrationDetails, [name]: value });
   };
   const handleClickShowPassword = () => {
     setshowPassword(!showPassword);
@@ -62,6 +61,7 @@ const Registration = () => {
           name="firstname"
           // type={showPassword ? "text" : "firstname" }
           label="firstname"
+          onChange={handleinput}
         />
       </FormControl>
 
@@ -72,6 +72,7 @@ const Registration = () => {
           id="outlined-adornment-lastname"
           name="lastname"
           label="lastname"
+          onChange={handleinput}
         />
       </FormControl>
       {/* email form */}
@@ -81,6 +82,7 @@ const Registration = () => {
           id="outlined-adornment-email"
           name="email"
           label="email"
+          onChange={handleinput}
         />
       </FormControl>
 
@@ -103,6 +105,7 @@ const Registration = () => {
             </InputAdornment>
           }
           label="Password"
+          onChange={handleinput}
         />
       </FormControl>
 
@@ -127,6 +130,7 @@ const Registration = () => {
             </InputAdornment>
           }
           label="confirmpassword"
+          onChange={handleinput}
         />
       </FormControl>
       {/* buttons  */}
@@ -137,6 +141,7 @@ const Registration = () => {
         <Button
           variant="contained"
           onClick={() => {
+            console.log(registrationDetails, "registration data");
             navigate("/login");
           }}
         >
