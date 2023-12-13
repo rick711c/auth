@@ -21,7 +21,9 @@ const Registration = () => {
     lastname: "",
     password: "",
     email: "",
-    confirmPassword: "",
+    phoneNo: "",
+    confirmpassword: "",
+    address: "",
   });
 
   const handleinput = (event: any) => {
@@ -35,16 +37,7 @@ const Registration = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleRegister = () => {
-    dispatch(
-      registrationRequested({
-        firstname: "saikat",
-        lastname: "Djhjoe",
-        phoneNo: "+1234567890",
-        email: "john.doe@example.com",
-        password: "secretpassword",
-        address: "123 Main Street",
-      })
-    );
+    dispatch(registrationRequested(registrationDetails));
     // navigate("/");
   };
 
@@ -71,6 +64,15 @@ const Registration = () => {
           id="outlined-adornment-lastname"
           name="lastname"
           label="lastname"
+          onChange={handleinput}
+        />
+      </FormControl>
+      <FormControl sx={{ m: 1, width: "35ch" }} variant="outlined">
+        <InputLabel htmlFor="outlined-adornment-email">Phone</InputLabel>
+        <OutlinedInput
+          id="outlined-adornment-email"
+          name="phoneNo"
+          label="phoneNo"
           onChange={handleinput}
         />
       </FormControl>
@@ -140,8 +142,7 @@ const Registration = () => {
         <Button
           variant="contained"
           onClick={() => {
-            console.log(registrationDetails, "registration data");
-            navigate("/login");
+            handleRegister();
           }}
         >
           BACK TO LOGIN

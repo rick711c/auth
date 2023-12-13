@@ -30,5 +30,8 @@ export function* watchAuthRequest() {
 
 export function* watchRegistrationRequest(){
 
-  yield takeLatest(authSlice.actions.authRequested.type,handleRegistrationRequest)
+  yield takeLatest(
+    authSlice.actions.registrationRequested.type,
+    handleRegistrationRequest
+  );
 }
